@@ -3,6 +3,9 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
 }
+apply plugin:'maven'
+
+group ='com.github.sandyz987'
 
 android {
     compileSdkVersion 30
