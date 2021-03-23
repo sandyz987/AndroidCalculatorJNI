@@ -34,7 +34,7 @@ int nameArgNum[MAX_OPERA_NUM] = {2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 2, 1, 3, 1,
                                  1, 1, 1};//Number of arguments
 
 char operator[] = {'+', '-', '*', '/', '^', '!', '%', '(', ')', ',', '&', '|', '~', '#'};
-int priority[] = {3, 3, 4, 4, 5, 5, 5, -4, -5, -1, 1, 0, 5, 8};//Operator' priority
+int priority[] = {3, 3, 4, 4, 5, 5, 5, -4, -5, -1, 1, 0, 5, 7};//Operator' priority
 int operatorArgNum[] = {2, 2, 2, 2, 2, 1, 2, 0, 0, 1, 2, 2, 1, 1};//Number of arguments
 
 double varList[26] = {0};
