@@ -2,14 +2,17 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
+    id 'com.github.dcendents.android-maven'
 }
+
+group ='com.github.sandyz987'
 
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.CalculatorJNI"
+        applicationId "com.example.calculatorjni"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1

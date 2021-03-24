@@ -1,9 +1,9 @@
-package com.example.CalculatorJNI
+package com.example.calculatorjni
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.CalculatorJNI.jni.CalculatorJNI
+import com.example.calculatorjni.jni.Calculator
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,33 +14,39 @@ class MainActivity : AppCompatActivity() {
 
 
         button.setOnClickListener {
+            val c = Calculator()
             Thread {
                 et_exp.text.toString().let {
                     it.removeSuffix(" ")
                     if (it.isBlank()) {
-                        CalculatorJNI.setExpression("0")
+                        c.setExpression("0")
                     } else {
-                        CalculatorJNI.setExpression(it)
+                        c.setExpression(it)
                     }
                 }
 
-                CalculatorJNI.formatExpression()
-                CalculatorJNI.eval()
                 var ans = 0.0
+
                 try {
-                    CalculatorJNI.setVariable('x', et_x.text.toString().toDouble())
-                    CalculatorJNI.setVariable('y', et_y.text.toString().toDouble())
-                    CalculatorJNI.clearVariable()
-                    ans = CalculatorJNI.getAns()
+
+                    for (i in et_x.text.toString().toInt()..et_y.text.toString().toInt()) {
+                        c.clearVariable()
+                        c.setVariable('x', i.toDouble())
+                        ans += c.getAns()
+                    }
+
+
                 } catch (e: Exception) {
                     e.printStackTrace()
+                } finally {
+                    c.destroy()
                 }
-
 
                 runOnUiThread {
                     done(ans)
                 }
             }.start()
+
         }
 
     }

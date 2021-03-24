@@ -12,7 +12,7 @@
 #define LOGD(fmt, args...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, fmt, ##args)
 #define LOGE(fmt, args...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, fmt, ##args)
 
-char *jstringToChar(JNIEnv *env, jstring jstr);
+//extern char *jstringToChar(JNIEnv *env, jstring jstr);
 
 
 #endif //GRAPH3_0_UTILS_H
